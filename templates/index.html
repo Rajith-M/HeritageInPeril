@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible"
+          content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>Heritage In Peril</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">
+</head>
+
+<body>
+    <header class="header">
+        <h1 class="header__logo">Extinct Species</h1>
+        <nav class="header__navigation">
+            <a href="#"
+               class="header__navigation--link"
+               class="active">Home</a>
+            <a href="#"
+               class="header__navigation--link">Discover</a>
+            <a href="#"
+               class="header__navigation--link">Services</a>
+            <a href="#"
+               class="header__navigation--link">Contact</a>
+        </nav>
+    </header>
+    <main>
+        <section class="parallax">
+            <img src="{{ url_for('static', filename='assets/hill1.png') }}"
+                 alt="hill"
+                 id="hill1">
+            <img src="{{ url_for('static', filename='assets/hill2.png') }}"
+                 alt="hill"
+                 id="hill2">
+            <img src="{{ url_for('static', filename='assets/hill3.png') }}"
+                 alt="hill"
+                 id="hill3">
+            <img src="{{ url_for('static', filename='assets/hill4.png') }}"
+                 alt="hill"
+                 id="hill4">
+            <img src="{{ url_for('static', filename='assets/tree.png') }}"
+                 alt="hill"
+                 id="tree">
+            <h2 id="parallax-title" class="parallax__title">Heritage In Peril</h2>
+            <img src="{{ url_for('static', filename='assets/hill5.png') }}"
+                 alt="hill"
+                 id="hill5">
+            <img src="{{ url_for('static', filename='assets/leaf.png') }}"
+                 alt="hill"
+                 id="leaf">
+            <img src="{{ url_for('static', filename='assets/plant.png') }}"
+                 alt="hill"
+                 id="plant">
+        </section>
+        
+        <div class="OverArchingElement">
+            <section class="content">
+                <h2 class="content__title reveal">Nature's Unsung Victims</h2>
+                <div  class="InformativeText">
+                    <div class="left-col">
+                        <h2 class="content__subtitle reveal">Search By Country</h2>
+                        <p class="content__text reveal">Instantly unveil the extinct species that once thrived in lands 
+                        </p>
+                        <h2 class="content__subtitle reveal">Interactive Map</h2>
+                        <p class="content__text reveal">Explore our planets hidden secrets with a tap of your finger.
+                        <h2 class="content__subtitle reveal">Lost Heritage</h2>
+                        <p class="content__text reveal">Cherish the memory of species gone but not forgotten.
+                        </p>
+                    </div>
+                    <div class="right-col">
+                        <h2 class="content__subtitle reveal">Conservation Efforts</h2>
+                        <p class="content__text reveal">Discover the initiatives stopping the impending doom of biodiversity.
+                        </p>
+                        <h2 class="content__subtitle reveal">Rare Species</h2>
+                        <p class="content__text reveal">Learn about the lesser-known species that play a crucial role in nature’s balance.
+                        </p>
+                        <h2 class="content__subtitle reveal">Take Action</h2>
+                        <p class="content__text reveal">Join the movement to protect our planets endangered creatures.
+                        </p>
+                    </div>
+                </div>
+        </div>
+        </section>
+        <div class = "OverArchingElement2">
+            <section class="content">
+                <h2 class="ContentTwo__title reveal">Contribute To Our Database!</h2>
+                <div class="InformativeText">
+                    <div class="left-col">
+                        <h2 class="ContentTwo__subtitle reveal">Send us your email</h2>
+                        <p class="ContentTwo__text reveal">Our team of experts compiles data from scientific research, historical records, and reputable organizations.
+                        </p>
+                    </div>
+                    <div class="right-col">
+                        <h2 class="ContentTwo__subtitle reveal">Why should we care?</h2>
+                        <p class="ContentTwo__text reveal">Understanding our lost heritage can help us protect and preserve existing ecosystems and biodiversity.
+                        </p>
+                    </div>
+                </div>
+                <h2 class="ContentTwo__title reveal">Join Us Wildlife Warriors!</h2>
+                <div class="ButtonWrapper reveal"> <input class="ButtonInput" value="Name@example.com"> <button class="SubButton">Subscribe</button></div>
+            </section>
+        <div>
+    </main>
+    <footer class="footer">
+        <h3 class="footer__logo">Rajith M | Prerana Kulkarni</h3>
+      <h4  class="footer__copy"> &copy; 2023</h4>
+    </footer>
+</body>
+<script >
+    let text = document.getElementById('parallax-title');
+    let leaf = document.getElementById('leaf');
+    let hill1 = document.getElementById('hill1');
+    let hill2 = document.getElementById('hill2');
+    let hill3 = document.getElementById('hill3');
+    let hill4 = document.getElementById('hill4');
+    let hill5 = document.getElementById('hill5');
+
+    window.addEventListener('scroll', () => {
+    let value = window.scrollY;
+
+    text.style.marginTop = `${value * 2.5}px`;
+    leaf.style.top = `${value * -1.5}px`;
+    leaf.style.left = `${value * 1.5}px`;
+    hill5.style.left = `${value * 1.5}px`;
+    hill4.style.left = `${value * -1.5}px`;
+    hill2.style.left = `${value * -0.5}px`;
+    hill2.style.bottom = `${value * -0.5}px`;
+    hill1.style.bottom = `${value * -1.5}px`;
+    });
+
+    window.addEventListener('scroll', reveal);
+
+    function reveal() {
+    const revealer = document.querySelectorAll('.reveal');
+
+    for (let i of revealer) {
+        let windowheight = window.innerHeight;
+        let revealTop = i.getBoundingClientRect().top;
+
+        let revealPoint = 75;
+        if (revealTop < windowheight - revealPoint) {
+        i.classList.add('active');
+        } else {
+            i.classList.remove('active');  
+        }
+    }
+    }
+
+</script>
+</html>
