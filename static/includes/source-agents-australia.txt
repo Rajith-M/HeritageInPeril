@@ -1,0 +1,44 @@
+<div id="demo-agents">
+ <ul>
+  <li id="canberra">
+
+    <!-- Canberra -->
+
+  </li>
+  <li id="new-south-wales">
+
+    <!-- New South Wales -->
+
+  </li>
+  <li id="northern-territory">
+
+    <!-- Northern Territory -->
+
+  </li>
+  <li id="queensland">
+
+    <!-- Queensland -->
+
+  </li>
+  <li id="south-australia">
+
+    <!-- South Australia -->
+
+  </li>
+  <li id="tasmania">
+
+    <!-- Tasmania -->
+
+  </li>
+  <li id="victoria">
+
+    <!-- Victoria -->
+
+  </li>
+  <li id="western-australia">
+
+    <!-- Western Australia -->
+
+  </li>
+ </ul>
+</div>

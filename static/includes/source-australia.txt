@@ -1,0 +1,14 @@
+<!-- CSSMap - Australia -->
+<div id="map-australia">
+ <ul class="australia">
+  <li class="au1"><a href="#canberra">Canberra</a></li>
+  <li class="au2"><a href="#new-south-wales">New South Wales</a></li>
+  <li class="au3"><a href="#northern-territory">Northern Territory</a></li>
+  <li class="au4"><a href="#queensland">Queensland</a></li>
+  <li class="au5"><a href="#south-australia">South Australia</a></li>
+  <li class="au6"><a href="#tasmania">Tasmania</a></li>
+  <li class="au7"><a href="#victoria">Victoria</a></li>
+  <li class="au8"><a href="#western-australia">Western Australia</a></li>
+ </ul>
+</div>
+<!-- END OF THE CSSMap - Australia -->

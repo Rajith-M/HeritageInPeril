@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="{{ css_url }}" media="screen" />
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles.css')}}" media="screen" />
+    <title>Document</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+    <header class="header">
+        <a href=""><h1 class="header__logo">Heritage In Peril</h1></a>
+        <span class="material-symbols-outlined">
+            pets
+        </span>
+    </header>
+    <div>
+    <div class="MapWrapper">
+        <div id="map-australia">
+            <ul class="australia">  
+            <li class="au1"><a href="#canberra">Canberra</a></li>
+            <li class="au2"><a href="#new-south-wales">New South Wales</a></li>
+            <li class="au3"><a href="#northern-territory">Northern Territory</a></li>
+            <li class="au4"><a href="#queensland">Queensland</a></li>
+            <li class="au5"><a href="#south-australia">South Australia</a></li>
+            <li class="au6"><a href="#tasmania">Tasmania</a></li>
+            <li class="au7"><a href="#victoria">Victoria</a></li>
+            <li class="au8"><a href="#western-australia">Western Australia</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class = "OverArchingElement2">
+        
+        <section class="content">
+            <div>
+                <h2 class="ContentTwo__title reveal">Apply Filters:</h2>
+                <form id="filter-form" method="POST" action="" class="filter reveal">
+                    <div class="InformativeText">
+                        <img src="{{image_url}}" class="SpeciesImage reveal">
+                        
+                        <!-- Dropdown list for countries -->
+                        <label for="country-dropdown">Select Country:</label>
+                        <select id="country-dropdown" name="country" class="reveal">
+                            <!-- Options will be dynamically added here -->
+                        </select>
+                        <br>
+                        <br>  
+                        <!-- Additional filters -->
+                        <label for="conservation-status">Conservation Status:</label>
+                        <select id="conservation-status" name="conservation-status" class="reveal">
+                            <option value="critically-endangered">Critically Endangered</option>
+                            <option value="endangered">Endangered</option>
+                            <option value="vulnerable">Vulnerable</option>
+                            <!-- Add more options as needed -->
+                        </select>
+                        <br>
+                        <br>
+                        <label for="habitat-type">Habitat Type:</label>
+                        <select id="habitat-type" name="habitat-type" class="reveal">
+                            <option value="forests">Forests</option>
+                            <option value="grasslands">Grasslands</option>
+                            <option value="marine">Marine</option>
+                            <!-- Add more options as needed -->
+                        </select>
+                </form>
+            </div>
+            <h2 class="ContentTwo__title reveal">Species Found:</h2>
+            <div class="InformativeText">
+                <!-- <img src="{{image_url}}" class="SpeciesImage reveal"> -->
+                <h2 class="ContentTwo__subtitle reveal">Country:  </h2>
+                <h2 class="ContentTwo__subtitle reveal">State: </h2>
+                <h2 class="ContentTwo__subtitle reveal">Name: </h2>
+                <h2 class="ContentTwo__subtitle reveal">Scientific Name: </h2>
+                <h2 class="ContentTwo__subtitle reveal">Description: </h2>
+                <p class="ContentTwo__text reveal">Our team of experts compiles data from scientific research, historical records, and reputable organizations.
+                </p>
+            </div>
+            <!-- <h2 class="ContentTwo__title reveal">Join Us Wildlife Warriors!</h2>
+            <div class="ButtonWrapper reveal"> <input class="ButtonInput" value="Name@example.com"> <button class="SubButton">Subscribe</button></div> -->
+        </section>
+    <div>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script type="text/javascript" src="https://cssmapsplugin.com/5/jquery.cssmap.min.js"></script>
+</body>
+    <script type="text/javascript">
+    $(document).ready(function(){
+        // CSSMap;
+        $("#map-australia").CSSMap({
+            "size": 750,
+            "onClick": function(listItem) {
+                // The listItem parameter contains information about the clicked region
+                var selectedState = listItem.text;
+
+                // Update the text of the dropdown
+                $("#country-dropdown").html("<option value='" + selectedState + "'>" + selectedState + "</option>");
+
+                // Optionally, you can call additional functions or send data to the backend
+                sendToBackend(selectedState);
+            }
+        });
+    });
+    </script>
+
+
+    <script type="text/javascript">
+        window.addEventListener('scroll', reveal);
+
+        function reveal() {
+        const revealer = document.querySelectorAll('.reveal');
+
+        for (let i of revealer) {
+        let windowheight = window.innerHeight;
+        let revealTop = i.getBoundingClientRect().top;
+
+        let revealPoint = 75;
+        if (revealTop < windowheight - revealPoint) {
+        i.classList.add('active');
+        } else {
+        i.classList.remove('active');  
+        }
+        }
+        }
+    </script>
+
+</html>

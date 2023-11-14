@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="{{url_for('static', filename = 'styles/enter_species_details.css')}}">
+  <title>Heritage in Peril</title>
+</head>
+<body>
+    <section>
+        <!-- <div class="form-box">
+            <div class="form-value">
+                <form action="" method="POST">
+                    <h2 class>Heritage In Peril</h2>
+                    <h3>Species</h3>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="text" name="commonName" required>
+                        <label for="">Common Name</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="text" name="scientificName" required>
+                        <label for="">Scientific Name</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="text" name="populationSize" required>
+                        <label for="">Population Size</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input name="description" type="text" required></textarea>
+                        <label for="">Description</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="text" name="estimatedExtinctionDate" required>
+                        <label for="">Estimated Date of Extinction</label>
+                    </div>
+                    <h3>Natural Habitat</h3>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="text" name="country" required>
+                        <label for="">Country</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="text" name="region" required>
+                        <label for="">Region</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="text" name="latitude" required>
+                        <label for="">Latitude</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="text" name="longitude" required>
+                        <label for="">Longitude</label>
+                    </div>
+                    <h3>Threats</h3>
+                    <div class="inputbox">
+                        <ion-icon name="mail-outline"></ion-icon>
+                        <input type="text" name="threatName" required>
+                        <label for="">Threat Name</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input name="threatDescription" required></textarea>
+                        <label for="">Description</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="text" name="severity" required>
+                        <label for="">Severity (1-5)</label>
+                    </div>
+                    <h3>Conservation Efforts</h3>
+                    <div class="inputbox">
+                        <ion-icon name="mail-outline"></ion-icon>
+                        <input type="text" name="organizationName" required>
+                        <label for="">Organization Name</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input name="projectDescription" rows="4" required></input>
+                        <label for="">Project Description</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="text" name="startDate" required>
+                        <label for="">Start Date</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="text" name="endDate" required>
+                        <label for="">End Date</label>
+                    </div>
+                    <h3>Conservation Location</h3>
+                    <div class="inputbox">
+                        <ion-icon name="mail-outline"></ion-icon>
+                        <input type="text" name="cloclatitude" required>
+                        <label for="">Latitude</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="text" name="cloclongitude" required>
+                        <label for="">Longitude</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="text" name="cloccountry" required>
+                        <label for="">Country</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="text" name="clocregion" required>
+                        <label for="">Region</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="text" name="conservationPark" required>
+                        <label for="">Conservation Park</label>
+                    </div>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div> -->
+        <div class="form-box">
+            <div class="form-value">
+                <form action="" method="POST">
+                    <h2 class>Heritage In Peril</h2>
+                    <h3>Species</h3>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="text" name="commonName" value="{{ dummy_data['commonName'] }}" required>
+                        <label for="">Common Name</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="text" name="scientificName" value="{{ dummy_data['scientificName'] }}" required>
+                        <label for="">Scientific Name</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="text" name="populationSize" value="{{ dummy_data['populationSize'] }}" required>
+                        <label for="">Population Size</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input name="description" type="text" value="{{ dummy_data['description'] }}" required>
+                        <label for="">Description</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="text" name="estimatedExtinctionDate" value="{{ dummy_data['estimatedExtinctionDate'] }}" required>
+                        <label for="">Estimated Date of Extinction</label>
+                    </div>
+                    <h3>Natural Habitat</h3>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="text" name="country" value="{{ dummy_data['cloccountry'] }}" required>
+                        <label for="">Country</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="text" name="region" value="{{ dummy_data['region'] }}" required>
+                        <label for="">Region</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="text" name="latitude" value="{{ dummy_data['latitude'] }}" required>
+                        <label for="">Latitude</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="text" name="longitude" value="{{ dummy_data['longitude'] }}" required>
+                        <label for="">Longitude</label>
+                    </div>
+                    <h3>Threats</h3>
+                    <div class="inputbox">
+                        <ion-icon name="mail-outline"></ion-icon>
+                        <input type="text" name="threatName" value="{{ dummy_data['threatName'] }}" required>
+                        <label for="">Threat Name</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input name="threatDescription" value="{{ dummy_data['threatDescription'] }}" required>
+                        <label for="">Description</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="text" name="severity" value="{{ dummy_data['severity'] }}" required>
+                        <label for="">Severity (1-5)</label>
+                    </div>
+                    <h3>Conservation Efforts</h3>
+                    <div class="inputbox">
+                        <ion-icon name="mail-outline"></ion-icon>
+                        <input type="text" name="organizationName" value="{{ dummy_data['organizationName'] }}" required>
+                        <label for="">Organization Name</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input name="projectDescription" rows="4" value="{{ dummy_data['projectDescription'] }}" required></input>
+                        <label for="">Project Description</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="text" name="startDate" value="{{ dummy_data['startDate'] }}" required>
+                        <label for="">Start Date</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="text" name="endDate" value="{{ dummy_data['endDate'] }}" required>
+                        <label for="">End Date</label>
+                    </div>
+                    <h3>Conservation Location</h3>
+                    <div class="inputbox">
+                        <ion-icon name="mail-outline"></ion-icon>
+                        <input type="text" name="cloclatitude" value="{{ dummy_data['cloclatitude'] }}" required>
+                        <label for="">Latitude</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="text" name="cloclongitude" value="{{ dummy_data['cloclongitude'] }}" required>
+                        <label for="">Longitude</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="text" name="cloccountry" value="{{ dummy_data['cloccountry'] }}" required>
+                        <label for="">Country</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="text" name="clocregion" value="{{ dummy_data['clocregion'] }}" required>
+                        <label for="">Region</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="text" name="conservationPark" value="{{ dummy_data['conservationPark'] }}" required>
+                        <label for="">Conservation Park</label>
+                    </div>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </section>
+  
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+<script src="/scripts/index.js" defer></script>
+</html>

@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+  
+  .reveal {
+    position: relative;
+    transform: translateY(15rem);
+    opacity: 0;
+    transition: all 0.4s ease 0.2s;
+  }
+  .reveal.active {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'poppins',sans-serif;
+}
+
+html {
+    font-size: 62.5%;
+    width: 100vw;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+section {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    background: url('magical-forest.gif') no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color:#00332A;/* Overlay color */
+    opacity: 0.8; /* Adjust the overlay opacity as needed */
+}
+
+.form-box{
+    position: relative;
+    width: 60%;
+    min-width: 300px;
+    background: #369381;
+    border: 10px solid rgba(255,255,255,0.5);
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    display: flex;
+    padding-left: 50px;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    margin: 10rem;
+}
+h2{
+    font-size: 6.4em;
+    color: #00332A;
+    text-align: center;
+    margin: 5rem;
+}
+h3{
+    padding-top: 10px;
+    font-size: 2.0em;
+    color: #00332A;
+    text-align: center; 
+    margin-top: 5rem;
+}
+.inputbox{
+    font-size: 1.8rem;
+    position: relative;
+    margin: 30px 0;
+    width: 800px;
+    border-bottom: 2px solid #00332A;
+}
+/* Chrome, Safari, Edge, Opera */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    appearance: none; 
+}
+.inputbox label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 1em;
+    pointer-events: none;
+    transition: .5s;
+}
+input:focus ~ label,
+input:valid ~ label{
+top: -5px;
+}
+.inputbox input {
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    padding:0 35px 0 5px;
+    color: #fff;
+}
+.inputbox ion-icon{
+    position: absolute;
+    right: 8px;
+    color: #fff;
+    font-size: 1.2em;
+    top: 20px;
+}
+
+button{
+    width: 800px;
+    height: 40px;
+    border-radius: 40px;
+    background: #fff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    margin-top: 5rem;
+    margin-bottom: 3rem;
+}
