@@ -94,5 +94,8 @@ CREATE TABLE ConservedAt (
 
 -- User table (for people who subscribe to the page and for monthly newsletters, etc.)
 CREATE TABLE User (
-    email VARCHAR(50) PRIMARY KEY
+    User_Email VARCHAR(50),
+    User_Password VARCHAR(50),
+    User_Type VARCHAR(50),
+    PRIMARY KEY (User_Email)
 );

@@ -19,15 +19,15 @@
     <div>
     <div class="MapWrapper">
         <div id="map-australia">
-            <ul class="australia">  
-            <li class="au1"><a href="#canberra">Canberra</a></li>
-            <li class="au2"><a href="#new-south-wales">New South Wales</a></li>
-            <li class="au3"><a href="#northern-territory">Northern Territory</a></li>
-            <li class="au4"><a href="#queensland">Queensland</a></li>
-            <li class="au5"><a href="#south-australia">South Australia</a></li>
-            <li class="au6"><a href="#tasmania">Tasmania</a></li>
-            <li class="au7"><a href="#victoria">Victoria</a></li>
-            <li class="au8"><a href="#western-australia">Western Australia</a></li>
+            <ul class="australia">
+                <li class="au1"><a href="#Canberra">Canberra</a></li>
+                <li class="au2"><a href="#New South Wales">New South Wales</a></li>
+                <li class="au3"><a href="#Northern Territory">Northern Territory</a></li>
+                <li class="au4"><a href="#Queensland">Queensland</a></li>
+                <li class="au5"><a href="#South Australia">South Australia</a></li>
+                <li class="au6"><a href="#Tasmania">Tasmania</a></li>
+                <li class="au7"><a href="#Victoria">Victoria</a></li>
+                <li class="au8"><a href="#Western Australia">Western Australia</a></li>
             </ul>
         </div>
     </div>
@@ -38,47 +38,73 @@
                 <h2 class="ContentTwo__title reveal">Apply Filters:</h2>
                 <form id="filter-form" method="POST" action="" class="filter reveal">
                     <div class="InformativeText">
-                        <img src="{{image_url}}" class="SpeciesImage reveal">
                         
                         <!-- Dropdown list for countries -->
-                        <label for="country-dropdown">Select Country:</label>
-                        <select id="country-dropdown" name="country" class="reveal">
+                        <label for="country-dropdown">Select Region:<br></label>
+                        <select id="country-dropdown" name="region" class="reveal">
                             <!-- Options will be dynamically added here -->
                         </select>
                         <br>
                         <br>  
                         <!-- Additional filters -->
-                        <label for="conservation-status">Conservation Status:</label>
+                        <label for="conservation-status">Conservation Status:<br></label>
                         <select id="conservation-status" name="conservation-status" class="reveal">
-                            <option value="critically-endangered">Critically Endangered</option>
-                            <option value="endangered">Endangered</option>
-                            <option value="vulnerable">Vulnerable</option>
-                            <!-- Add more options as needed -->
+                            <option value="5">Critically Endangered</option>
+                            <option value="4">Endangered</option>
+                            <option value="3">Vulnerable</option>
+                            <option value="2">Near Threatened</option>
+                            <option value="1">Not In Danger</option>
                         </select>
                         <br>
                         <br>
-                        <label for="habitat-type">Habitat Type:</label>
+                        <!-- <label for="habitat-type">Habitat Type:</label>
                         <select id="habitat-type" name="habitat-type" class="reveal">
                             <option value="forests">Forests</option>
                             <option value="grasslands">Grasslands</option>
                             <option value="marine">Marine</option>
-                            <!-- Add more options as needed -->
+                            <option value="desert">Desert</option>
+                            <option value="lakes">Lakes</option>
+                            <option value="rivers">Rivers</option>
+                        </select> -->
+                        <label for="limit">Limit:<br></label>
+                        <select id="limit" name="limit" class="reveal">
+                            <option value="5">5</option>
+                            <option value="4">4</option>
+                            <option value="3">3</option>
+                            <option value="2">2</option>
+                            <option value="1">1</option>
                         </select>
+                        <br>
+                        <button type="submit">Submit</button>
                 </form>
             </div>
-            <h2 class="ContentTwo__title reveal">Species Found:</h2>
-            <div class="InformativeText">
-                <!-- <img src="{{image_url}}" class="SpeciesImage reveal"> -->
-                <h2 class="ContentTwo__subtitle reveal">Country:  </h2>
-                <h2 class="ContentTwo__subtitle reveal">State: </h2>
-                <h2 class="ContentTwo__subtitle reveal">Name: </h2>
-                <h2 class="ContentTwo__subtitle reveal">Scientific Name: </h2>
-                <h2 class="ContentTwo__subtitle reveal">Description: </h2>
-                <p class="ContentTwo__text reveal">Our team of experts compiles data from scientific research, historical records, and reputable organizations.
-                </p>
-            </div>
-            <!-- <h2 class="ContentTwo__title reveal">Join Us Wildlife Warriors!</h2>
-            <div class="ButtonWrapper reveal"> <input class="ButtonInput" value="Name@example.com"> <button class="SubButton">Subscribe</button></div> -->
+            <!-- <div class="species-component">
+                <h2 class="ContentTwo__title reveal">Species Found:</h2>
+                {% for species in filtered_species %}
+                    <div class="InformativeText">
+                        {% for key, value in species.items() %}
+                            <h2 class="ContentTwo__subtitle reveal">{{ key }}: {{ value }}</h2>
+                        {% endfor %}
+                        <p class="ContentTwo__text reveal">
+                            Our team of experts compiles data from scientific research, historical records, and reputable organizations.
+                        </p>
+                    </div>
+                {% endfor %}
+            </div>             -->
+            <div class="species-component">
+                <h2 class="ContentTwo__title reveal">Species Found:</h2>
+              
+                {% for species in filtered_species %}
+                  <div class="InformativeText">
+                    {% for key, value in species.items() %}
+                      <h2 class="ContentTwo__subtitle reveal">{{ key }}: <br>{{ value }}</h2>
+                    {% endfor %}
+                    <hr>  
+                    <br>
+                    <br>                  
+                  </div>
+                {% endfor %}   
+              </div>              
         </section>
     <div>
 
@@ -92,19 +118,52 @@
         $("#map-australia").CSSMap({
             "size": 750,
             "onClick": function(listItem) {
-                // The listItem parameter contains information about the clicked region
-                var selectedState = listItem.text;
+                // // The listItem parameter contains information about the clicked region
+                // var selectedState = listItem.text;
 
-                // Update the text of the dropdown
-                $("#country-dropdown").html("<option value='" + selectedState + "'>" + selectedState + "</option>");
+                // // Update the text of the dropdown
+                // $("#country-dropdown").html("<option value='" + selectedState + "'>" + selectedState + "</option>");
 
-                // Optionally, you can call additional functions or send data to the backend
-                sendToBackend(selectedState);
+                // // Optionally, you can call additional functions or send data to the backend
+                // sendToBackend(selectedState);
             }
         });
     });
     </script>
 
+    <script type="text/javascript">
+        // Function to handle hash changes
+        function handleHashChange() {
+            // Get the country name from the updated URL hash
+            var country = window.location.hash.substring(1);
+
+            // Call the function to add the country to the dropdown
+            addCountryToDropdown(country);
+        }
+
+        // Add event listener for hash changes
+        window.addEventListener('hashchange', handleHashChange);
+
+        // Initial call to populate the dropdown when the page loads
+        handleHashChange();
+
+        function addCountryToDropdown(country) {
+            // Select the dropdown element
+            var dropdown = document.getElementById('country-dropdown');
+
+            // Create a new option element
+            var option = document.createElement('option');
+
+            // Set the value and text of the option
+            option.value = country;
+            option.text = country;
+
+            // Append the option to the dropdown
+            dropdown.add(option);
+            option.selected=true;
+        }
+    </script>
+ 
 
     <script type="text/javascript">
         window.addEventListener('scroll', reveal);
