@@ -11,7 +11,7 @@
 </head>
 <body>
     <header class="header">
-        <a href=""><h1 class="header__logo">Heritage In Peril</h1></a>
+        <a href="/"><h1 class="header__logo">Heritage In Peril - Australia</h1></a>
         <span class="material-symbols-outlined">
             pets
         </span>
@@ -21,34 +21,33 @@
         <div id="map-australia">
             <ul class="australia">
                 <li class="au1"><a href="#Canberra">Canberra</a></li>
-                <li class="au2"><a href="#New South Wales">New South Wales</a></li>
-                <li class="au3"><a href="#Northern Territory">Northern Territory</a></li>
+                <li class="au2"><a href="#NewSouthWales">New South Wales</a></li>
+                <li class="au3"><a href="#NorthernTerritory">Northern Territory</a></li>
                 <li class="au4"><a href="#Queensland">Queensland</a></li>
-                <li class="au5"><a href="#South Australia">South Australia</a></li>
+                <li class="au5"><a href="#SouthAustralia">South Australia</a></li>
                 <li class="au6"><a href="#Tasmania">Tasmania</a></li>
                 <li class="au7"><a href="#Victoria">Victoria</a></li>
-                <li class="au8"><a href="#Western Australia">Western Australia</a></li>
+                <li class="au8"><a href="#WesternAustralia">Western Australia</a></li>
             </ul>
         </div>
     </div>
     <div class = "OverArchingElement2">
-        
         <section class="content">
             <div>
-                <h2 class="ContentTwo__title reveal">Apply Filters:</h2>
+                <h2 class="ContentTwo__title reveal">Apply Filters To Search Through Our Database:</h2>
                 <form id="filter-form" method="POST" action="" class="filter reveal">
                     <div class="InformativeText">
                         
                         <!-- Dropdown list for countries -->
                         <label for="country-dropdown">Select Region:<br></label>
-                        <select id="country-dropdown" name="region" class="reveal">
+                        <select id="country-dropdown" name="region" class="">
                             <!-- Options will be dynamically added here -->
                         </select>
                         <br>
                         <br>  
                         <!-- Additional filters -->
                         <label for="conservation-status">Conservation Status:<br></label>
-                        <select id="conservation-status" name="conservation-status" class="reveal">
+                        <select id="conservation-status" name="conservation-status" class="">
                             <option value="5">Critically Endangered</option>
                             <option value="4">Endangered</option>
                             <option value="3">Vulnerable</option>
@@ -67,15 +66,14 @@
                             <option value="rivers">Rivers</option>
                         </select> -->
                         <label for="limit">Limit:<br></label>
-                        <select id="limit" name="limit" class="reveal">
+                        <select id="limit" name="limit" class="">
                             <option value="5">5</option>
                             <option value="4">4</option>
                             <option value="3">3</option>
                             <option value="2">2</option>
                             <option value="1">1</option>
-                        </select>
-                        <br>
-                        <button type="submit">Submit</button>
+                        </select>   
+                        <button type="submit" class="">Submit</button>
                 </form>
             </div>
             <!-- <div class="species-component">

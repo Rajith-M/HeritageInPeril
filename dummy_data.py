@@ -9,7 +9,7 @@ dummy_data_list = [
         'estimatedExtinctionDate': '2050-01-01',
         'closestNeighbourCommonName': 'Wallaby',
         'closestNeighbourScientificName': 'Macropus_eugenii',
-        'region': 'New South Wales',
+        'region': 'NewSouthWales',
         'latitude': '-33.8688',  # Latitude for Sydney, Australia
         'longitude': '151.2093',  # Longitude for Sydney, Australia
         'threatName': 'Habitat Loss',
@@ -22,7 +22,7 @@ dummy_data_list = [
         'cloclatitude': '-33.8688',  # Latitude for Sydney, Australia
         'cloclongitude': '151.2093',  # Longitude for Sydney, Australia
         'cloccountry': 'Australia',
-        'clocregion': 'New South Wales',
+        'clocregion': 'NewSouthWales',
         'conservationPark': 'Outback National Park'
     },
     {
@@ -105,7 +105,7 @@ dummy_data_list = [
         'estimatedExtinctionDate': '2030-01-01',
         'closestNeighbourCommonName': 'Galah',
         'closestNeighbourScientificName': 'Eolophus_roseicapilla',
-        'region': 'Western Australia',
+        'region': 'WesternAustralia',
         'latitude': '-31.9505',  # Latitude for Perth, Australia
         'longitude': '115.8605',  # Longitude for Perth, Australia
         'threatName': 'Illegal Pet Trade',
@@ -118,7 +118,7 @@ dummy_data_list = [
         'cloclatitude': '-31.9505',  # Latitude for Perth, Australia
         'cloclongitude': '115.8605',  # Longitude for Perth, Australia
         'cloccountry': 'Australia',
-        'clocregion': 'Western Australia',
+        'clocregion': 'WesternAustralia',
         'conservationPark': 'Eucalyptus Canopy Conservation Area'
     },
     {
@@ -129,7 +129,7 @@ dummy_data_list = [
         'estimatedExtinctionDate': '2055-01-01',
         'closestNeighbourCommonName': 'Echidna',
         'closestNeighbourScientificName': 'Tachyglossus_aculeatus',
-        'region': 'South Australia',
+        'region': 'SouthAustralia',
         'latitude': '-34.9285',  # Latitude for Adelaide, Australia
         'longitude': '138.6007',  # Longitude for Adelaide, Australia
         'threatName': 'Water Pollution',
@@ -142,7 +142,7 @@ dummy_data_list = [
         'cloclatitude': '-34.9285',  # Latitude for Adelaide, Australia
         'cloclongitude': '138.6007',  # Longitude for Adelaide, Australia
         'cloccountry': 'Australia',
-        'clocregion': 'South Australia',
+        'clocregion': 'SouthAustralia',
         'conservationPark': 'Murray River Conservation Reserve'
     },
         {
@@ -177,7 +177,7 @@ dummy_data_list = [
         'estimatedExtinctionDate': '2048-01-01',
         'closestNeighbourCommonName': 'Platypus',
         'closestNeighbourScientificName': 'Ornithorhynchus_anatinus',
-        'region': 'South Australia',
+        'region': 'SouthAustralia',
         'latitude': '-34.9285',  # Latitude for Adelaide, Australia
         'longitude': '138.6007',  # Longitude for Adelaide, Australia
         'threatName': 'Land Development',
@@ -190,7 +190,7 @@ dummy_data_list = [
         'cloclatitude': '-34.9285',  # Latitude for Adelaide, Australia
         'cloclongitude': '138.6007',  # Longitude for Adelaide, Australia
         'cloccountry': 'Australia',
-        'clocregion': 'South Australia',
+        'clocregion': 'SouthAustralia',
         'conservationPark': 'Adelaide Hills Wildlife Sanctuary'
     },
     {
@@ -201,7 +201,7 @@ dummy_data_list = [
         'estimatedExtinctionDate': '2033-01-01',
         'closestNeighbourCommonName': 'Cockatoo',
         'closestNeighbourScientificName': 'Cacatua',
-        'region': 'Western Australia',
+        'region': 'WesternAustralia',
         'latitude': '-31.9505',  # Latitude for Perth, Australia
         'longitude': '115.8605',  # Longitude for Perth, Australia
         'threatName': 'Pesticide Poisoning',
@@ -214,7 +214,7 @@ dummy_data_list = [
         'cloclatitude': '-31.9505',  # Latitude for Perth, Australia
         'cloclongitude': '115.8605',  # Longitude for Perth, Australia
         'cloccountry': 'Australia',
-        'clocregion': 'Western Australia',
+        'clocregion': 'WesternAustralia',
         'conservationPark': 'Coastal Eucalyptus Reserve'
     },
     {
@@ -249,7 +249,7 @@ dummy_data_list = [
         'estimatedExtinctionDate': '2048-01-01',
         'closestNeighbourCommonName': 'Bilby',
         'closestNeighbourScientificName': 'Macrotis lagotis',
-        'region': 'Western Australia',
+        'region': 'WesternAustralia',
         'latitude': '-31.9505',  # Latitude for Perth, Australia
         'longitude': '115.8605',  # Longitude for Perth, Australia
         'threatName': 'Predation',
@@ -262,7 +262,7 @@ dummy_data_list = [
         'cloclatitude': '-31.9505',  # Latitude for Perth, Australia
         'cloclongitude': '115.8605',  # Longitude for Perth, Australia
         'cloccountry': 'Australia',
-        'clocregion': 'Western Australia',
+        'clocregion': 'WesternAustralia',
         'conservationPark': 'Numbat Nature Reserve'
     },
     {
@@ -297,7 +297,7 @@ dummy_data_list = [
         'estimatedExtinctionDate': '2035-01-01',
         'closestNeighbourCommonName': 'Long-necked Turtle',
         'closestNeighbourScientificName': 'Chelodina oblonga',
-        'region': 'Western Australia',
+        'region': 'WesternAustralia',
         'latitude': '-31.9505',  # Latitude for Perth, Australia
         'longitude': '115.8605',  # Longitude for Perth, Australia
         'threatName': 'Habitat Loss and Predation',
@@ -310,7 +310,7 @@ dummy_data_list = [
         'cloclatitude': '-31.9505',  # Latitude for Perth, Australia
         'cloclongitude': '115.8605',  # Longitude for Perth, Australia
         'cloccountry': 'Australia',
-        'clocregion': 'Western Australia',
+        'clocregion': 'WesternAustralia',
         'conservationPark': 'Western Swamp Tortoise Conservation Area'
     },
     {
@@ -334,7 +334,7 @@ dummy_data_list = [
         'cloclatitude': '-32.7157',  # Latitude for Sydney, Australia
         'cloclongitude': '152.147',  # Longitude for Sydney, Australia
         'cloccountry': 'Australia',
-        'clocregion': 'New South Wales',
+        'clocregion': 'NewSouthWales',
         'conservationPark': 'Regent Honeyeater Reserve'
     },
     {
@@ -369,7 +369,7 @@ dummy_data_list = [
         'estimatedExtinctionDate': '2046-01-01',
         'closestNeighbourCommonName': 'Zebra Finch',
         'closestNeighbourScientificName': 'Taeniopygia guttata',
-        'region': 'Northern Territory',
+        'region': 'NorthernTerritory',
         'latitude': '-12.4634',  # Latitude for Darwin, Northern Territory, Australia
         'longitude': '130.8456',  # Longitude for Darwin, Northern Territory, Australia
         'threatName': 'Habitat Fragmentation',
@@ -382,7 +382,7 @@ dummy_data_list = [
         'cloclatitude': '-12.4634',  # Latitude for Darwin, Northern Territory, Australia
         'cloclongitude': '130.8456',  # Longitude for Darwin, Northern Territory, Australia
         'cloccountry': 'Australia',
-        'clocregion': 'Northern Territory',
+        'clocregion': 'NorthernTerritory',
         'conservationPark': 'Gouldian Finch Reserve'
     },
     {
@@ -393,7 +393,7 @@ dummy_data_list = [
         'estimatedExtinctionDate': '2050-01-01',
         'closestNeighbourCommonName': 'Numbat',
         'closestNeighbourScientificName': 'Myrmecobius fasciatus',
-        'region': 'Northern Territory',
+        'region': 'NorthernTerritory',
         'latitude': '-12.4634',  # Latitude for Darwin, Northern Territory, Australia
         'longitude': '130.8456',  # Longitude for Darwin, Northern Territory, Australia
         'threatName': 'Predation and Habitat Loss',
@@ -406,7 +406,7 @@ dummy_data_list = [
         'cloclatitude': '-12.4634',  # Latitude for Darwin, Northern Territory, Australia
         'cloclongitude': '130.8456',  # Longitude for Darwin, Northern Territory, Australia
         'cloccountry': 'Australia',
-        'clocregion': 'Northern Territory',
+        'clocregion': 'NorthernTerritory',
         'conservationPark': 'Bilby Protection Area'
     },
     {
@@ -417,7 +417,7 @@ dummy_data_list = [
         'estimatedExtinctionDate': '2048-01-01',
         'closestNeighbourCommonName': 'Northern Brown Bandicoot',
         'closestNeighbourScientificName': 'Isoodon macrourus',
-        'region': 'Northern Territory',
+        'region': 'NorthernTerritory',
         'latitude': '-12.4634',  # Latitude for Darwin, Northern Territory, Australia
         'longitude': '130.8456',  # Longitude for Darwin, Northern Territory, Australia
         'threatName': 'Habitat Fragmentation and Invasive Species',
@@ -430,7 +430,7 @@ dummy_data_list = [
         'cloclatitude': '-12.4634',  # Latitude for Darwin, Northern Territory, Australia
         'cloclongitude': '130.8456',  # Longitude for Darwin, Northern Territory, Australia
         'cloccountry': 'Australia',
-        'clocregion': 'Northern Territory',
+        'clocregion': 'NorthernTerritory',
         'conservationPark': 'Golden Bandicoot Sanctuary'
     },
     {
@@ -465,7 +465,7 @@ dummy_data_list = [
         'estimatedExtinctionDate': '2049-01-01',
         'closestNeighbourCommonName': 'Brush Bronzewing',
         'closestNeighbourScientificName': 'Phaps elegans',
-        'region': 'South Australia',
+        'region': 'SouthAustralia',
         'latitude': '-34.9285',  # Latitude for Adelaide, South Australia, Australia
         'longitude': '138.6007',  # Longitude for Adelaide, South Australia, Australia
         'threatName': 'Habitat Degradation and Predation',
@@ -478,7 +478,7 @@ dummy_data_list = [
         'cloclatitude': '-34.9285',  # Latitude for Adelaide, South Australia, Australia
         'cloclongitude': '138.6007',  # Longitude for Adelaide, South Australia, Australia
         'cloccountry': 'Australia',
-        'clocregion': 'South Australia',
+        'clocregion': 'SouthAustralia',
         'conservationPark': 'Mallee Fowl Habitat Preservation Area'
     },
     {
@@ -489,7 +489,7 @@ dummy_data_list = [
         'estimatedExtinctionDate': '2050-01-01',
         'closestNeighbourCommonName': 'Bourke\'s Parrot',
         'closestNeighbourScientificName': 'Neopsephotus bourkii',
-        'region': 'Western Australia',
+        'region': 'WesternAustralia',
         'latitude': '-31.9505',  # Latitude for Perth, Western Australia, Australia
         'longitude': '115.8605',  # Longitude for Perth, Western Australia, Australia
         'threatName': 'Habitat Loss and Feral Predators',
@@ -502,7 +502,7 @@ dummy_data_list = [
         'cloclatitude': '-31.9505',  # Latitude for Perth, Western Australia, Australia
         'cloclongitude': '115.8605',  # Longitude for Perth, Western Australia, Australia
         'cloccountry': 'Australia',
-        'clocregion': 'Western Australia',
+        'clocregion': 'WesternAustralia',
         'conservationPark': 'Night Parrot Conservation Reserve'
     },
     {
@@ -513,7 +513,7 @@ dummy_data_list = [
         'estimatedExtinctionDate': '2046-01-01',
         'closestNeighbourCommonName': 'Fawn Hopping Mouse',
         'closestNeighbourScientificName': 'Notomys cervinus',
-        'region': 'Northern Territory',
+        'region': 'NorthernTerritory',
         'latitude': '-12.4634',  # Latitude for Darwin, Northern Territory, Australia
         'longitude': '130.8456',  # Longitude for Darwin, Northern Territory, Australia
         'threatName': 'Habitat Fragmentation and Predation',
@@ -526,7 +526,7 @@ dummy_data_list = [
         'cloclatitude': '-12.4634',  # Latitude for Darwin, Northern Territory, Australia
         'cloclongitude': '130.8456',  # Longitude for Darwin, Northern Territory, Australia
         'cloccountry': 'Australia',
-        'clocregion': 'Northern Territory',
+        'clocregion': 'NorthernTerritory',
         'conservationPark': 'Central Rock Rat Protection Area'
     },
     {
@@ -537,7 +537,7 @@ dummy_data_list = [
         'estimatedExtinctionDate': '2040-01-01',
         'closestNeighbourCommonName': 'Coastal Taipan',
         'closestNeighbourScientificName': 'Oxyuranus scutellatus',
-        'region': 'Northern Territory',
+        'region': 'NorthernTerritory',
         'latitude': '-12.4634',  # Latitude for Darwin, Northern Territory, Australia
         'longitude': '130.8456',  # Longitude for Darwin, Northern Territory, Australia
         'threatName': 'Habitat Destruction and Human Encroachment',
@@ -550,7 +550,7 @@ dummy_data_list = [
         'cloclatitude': '-12.4634',  # Latitude for Darwin, Northern Territory, Australia
         'cloclongitude': '130.8456',  # Longitude for Darwin, Northern Territory, Australia
         'cloccountry': 'Australia',
-        'clocregion': 'Northern Territory',
+        'clocregion': 'NorthernTerritory',
         'conservationPark': 'Central Ranges Taipan Sanctuary'
     }
 ]
