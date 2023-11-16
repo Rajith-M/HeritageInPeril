@@ -1,8 +1,8 @@
 -- Species Table:
 
-create database heritage_in_peril;
+create database heritage_in_peril_s;
 
-use heritage_in_peril;
+use heritage_in_peril_s;
 
 CREATE TABLE species (
     ScientificName VARCHAR(255) PRIMARY KEY,

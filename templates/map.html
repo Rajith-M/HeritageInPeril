@@ -91,11 +91,14 @@
             </div>             -->
             <div class="species-component">
                 <h2 class="ContentTwo__title reveal">Species Found:</h2>
-              
                 {% for species in filtered_species %}
                   <div class="InformativeText">
+                    <img src="{{ get_unsplash_image_url(species["CommonName"]) }}" alt="Image does not exist in the database for species: {{ value }}" class="SpeciesImage">
+                    <br>
                     {% for key, value in species.items() %}
-                      <h2 class="ContentTwo__subtitle reveal">{{ key }}: <br>{{ value }}</h2>
+                        {% if key == "CommonName" %}
+                        {% endif %}
+                        <h2 class="ContentTwo__subtitle reveal">{{ key }}: <br> <span class="Value">{{ value }}</span></h2>
                     {% endfor %}
                     <hr>  
                     <br>

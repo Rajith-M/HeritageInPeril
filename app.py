@@ -18,6 +18,24 @@ app.config['MYSQL_DB'] = db['mysql_db']
 
 mysql = MySQL(app)
 
+
+def get_unsplash_image_url(keyword):
+    access_key = 'kotZy7ftGWCC1Cmpi9V3HA2ayzFbyneCKmRd_YQckiE'
+    base_url = 'https://api.unsplash.com/search/photos'
+    params = {
+        'query': keyword,
+        'client_id': access_key,
+        'per_page': 1,
+        'orientation': 'landscape'
+    }
+    response = requests.get(base_url, params=params)
+    if response.status_code == 200:
+        data = response.json()
+        if data['results']:
+            return data['results'][0]['urls']['regular']
+    return None
+
+
 @app.route('/', methods=['GET', 'POST'])
 def index():    
     return render_template('index.html')
@@ -159,23 +177,7 @@ def enter_species_details():
     dummy_data = get_random_dummy_data()
     return render_template('enter_species_details.html', dummy_data = dummy_data)
 
-def get_unsplash_image_url(keyword):
-    # Replace 'YOUR_ACCESS_KEY' with your Unsplash API access key
-    access_key = 'kotZy7ftGWCC1Cmpi9V3HA2ayzFbyneCKmRd_YQckiE'
-    base_url = 'https://api.unsplash.com/photos/random'
-    params = {
-        'query': keyword,
-        'client_id': access_key
-    }
 
-    response = requests.get(base_url, params=params)
-    if response.status_code == 200:
-        data = response.json()
-        if data and 'urls' in data:
-            return data['urls']['regular']
-    return None
-
-from flask import render_template, request
 
 @app.route('/map_page', methods=['GET', 'POST'])
 def map_page():
@@ -248,10 +250,10 @@ def map_page():
                 } for data in filtered_species]
         
         # Render the template with the filtered species data
-        return render_template('map.html', filtered_species=output_dict_list, css_url=url_for('static', filename='cssmap-australia/cssmap-australia.css'))
+        return render_template('map.html', filtered_species=output_dict_list, css_url=url_for('static', filename='cssmap-australia/cssmap-australia.css'), get_unsplash_image_url=get_unsplash_image_url)
 
     # If not a POST request, render the initial map.html
-    return render_template('map.html', css_url=url_for('static', filename='cssmap-australia/cssmap-australia.css'))
+    return render_template('map.html', css_url=url_for('static', filename='cssmap-australia/cssmap-australia.css'), get_unsplash_image_url=get_unsplash_image_url)
 
 if __name__ == '__main__':
     app.run(debug=True)

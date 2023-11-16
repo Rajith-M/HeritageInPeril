@@ -104,10 +104,14 @@ a{
     border: 5px solid #93DFD5;
 }
 .ContentTwo__subtitle {  
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   font-weight: 500;
   margin-bottom: 3rem;
   color: #93DFD5;
+}
+.Value{
+  font-size: 1.6rem;
+  color: white;
 }
 .ContentTwo__text {
   font-size: 1rem;
