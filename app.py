@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, url_for, redirect, flash
+from flask import Flask, render_template, request, url_for, redirect, flash, session, abort
 import requests
 from flask_mysqldb import MySQL
 import yaml
@@ -44,33 +44,26 @@ def index():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        email = request.form.get('email')  # Get the email value from the form
-        password = request.form.get('password')  # Get the password value from the form
-        explorer_collaborator = request.form.get('explorerCollaborator')  # Get the explorer/collaborator value from the form
+        email = request.form.get('email')
+        password = request.form.get('password') 
+        
+        print("Login Information")
+        print("Email:", email)  
+        print("Password:", password) 
 
-        print("Email:", email)  # Print email to the console
-        print("Password:", password)  # Print password to the console
-        print("Explorer/Collaborator:", explorer_collaborator)  # Print explorer/collaborator to the console
-
-        # Check if the user exists in the User table
         cur = mysql.connection.cursor()
         cur.execute("SELECT * FROM User WHERE User_Email = %s", (email,))
         user = cur.fetchone()
         cur.close()
 
-        if user:  # If the user exists in the User table
-            # Validate password - You should implement password hashing and verification
-            if user['User_Password'] == password:
-                # Password matches, user exists and can log in
-                # Redirect or render a different template after successful login
-                # For example, redirect to the index page
+        if user:  
+            if user[1] == password:
+                session["user"] = user[2]
                 return redirect(url_for('index'))
             else:
-                # Incorrect password
                 flash('Incorrect password. Please try again.', 'error')
                 return render_template('login.html')
         else:
-            # User does not exist
             flash('User does not exist. Please register.', 'error')
             return render_template('login.html')
 
@@ -78,8 +71,40 @@ def login():
 
 
 
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    if request.method == 'POST':
+        email = request.form.get('email')
+        password = request.form.get('password')
+        explorer_collaborator = request.form.get('explorerCollaborator')
+        print(email, password, explorer_collaborator)
+
+        cur = mysql.connection.cursor()
+
+        cur.execute("SELECT * FROM User WHERE User_Email = %s", (email,))
+        existing_user = cur.fetchone()
+
+        if existing_user:
+            flash('User already exists. Please log in.', 'error')
+            return redirect(url_for('login'))
+
+        cur.execute("INSERT INTO User (User_Email, User_Password, User_Type) VALUES (%s, %s, %s)", (email, password, explorer_collaborator))
+
+        mysql.connection.commit()
+        cur.close()
+
+        flash('Registration successful. Please log in.', 'success')
+        return redirect(url_for('login'))
+
+    return render_template('register.html')
+
+
+
+
 @app.route('/enter_species_details', methods=['GET', 'POST'])
 def enter_species_details():
+    if "user" not in session or session["user"] != "Collaborator":
+        abort(403)  # Return a forbidden response if the user is not a collaborator
     if request.method == 'POST':
         new_species_details = request.form
 
@@ -174,8 +199,9 @@ def enter_species_details():
         cur.close()
         return "Successfully entered species and details!"
     
-    dummy_data = get_random_dummy_data()
-    return render_template('enter_species_details.html', dummy_data = dummy_data)
+    if "user" in session:
+        dummy_data = get_random_dummy_data()
+        return render_template('enter_species_details.html', dummy_data = dummy_data)
 
 
 

@@ -27,13 +27,12 @@
         </div>
       </div>
     </div>
-    <form action="" method="POST">
     <div class="forms">
         <div class="form-content">
           <div class="login-form">
-            <div style="font-weight: 500; font-size: 1.2rem;">Heritage In Peril!</div>
-            <div class="title">Login</div>
-          <form action="#">
+            <div style="font-weight: 500; font-size: 1.2rem;">Welcome to Heritage In Peril!</div>
+            <div class="title">Sign Up</div>
+          <form action="#" method="POST">
             <div class="input-boxes">
               <div class="input-box">
                 <i class="fas fa-envelope"></i>
@@ -43,20 +42,21 @@
                 <i class="fas fa-lock"></i>
                 <input type="password" name="password" placeholder="Enter your password" required>
               </div>
+              <div class="input-box">
+                <i class="fas fa-lock"></i>
+                <input type="text" placeholder="Enter your role" name="explorerCollaborator" required>
+              </div>
               <div class="button input-box">
                 <input type="submit" value="Sumbit">
               </div>
-              <div>Don't have an account? <a href="/register">Sign Up!</a></div>
-            </div>
-            <hr>
-            <br>
-            {% with messages = get_flashed_messages() %}
-            {% if messages %}
-                {% for msg in messages %}
-                    <p class="{{msg[1]}}">{{msg}}</p>
-                {% endfor %}
-            {% endif %}
+              {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for msg in messages %}
+                        <p class="{{msg[1]}}">{{msg}}</p>
+                    {% endfor %}
+                {% endif %}
             {% endwith %}
+            </div>
         </form>
     </div>
     </div>
