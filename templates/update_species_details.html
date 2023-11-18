@@ -10,7 +10,7 @@
             <div class="form-value">
                 <form action="" method="POST">
                     <h2>Update Species Details</h2>
-                    <h3>Species Information</h3>
+                    <h3>Species</h3>
                     <div class="inputbox">
                         <ion-icon name="lock-closed-outline"></ion-icon>
                         <input type="text" name="commonName" value="{{ species_common_name }}" readonly>
@@ -36,6 +36,7 @@
                         <input type="text" name="estimatedExtinctionDate" value="{{ species_estimated_extinction_date }}">
                         <label for="estimatedExtinctionDate">Estimated Date of Extinction</label>
                     </div>
+                    <h3>Natural Habitat</h3>
                     <div class="inputbox">
                         <ion-icon name="lock-closed-outline"></ion-icon>
                         <input type="text" name="country" value="{{ species_country }}">
@@ -56,6 +57,7 @@
                         <input type="text" name="longitude" value="{{ species_longitude }}">
                         <label for="longitude">Longitude</label>
                     </div>
+                    <h3>Threat</h3>
                     <div class="inputbox">
                         <ion-icon name="lock-closed-outline"></ion-icon>
                         <input type="text" name="threatName" value="{{ species_threat_name }}">
@@ -71,6 +73,7 @@
                         <input type="text" name="severity" value="{{ species_severity }}">
                         <label for="severity">Severity (1-5)</label>
                     </div>
+                    <h3>Conservation Organization</h3>
                     <div class="inputbox">
                         <ion-icon name="lock-closed-outline"></ion-icon>
                         <input type="text" name="organizationName" value="{{ species_organization_name }}">
@@ -91,6 +94,7 @@
                         <input type="text" name="endDate" value="{{ species_end_date }}">
                         <label for="endDate">End Date</label>
                     </div>
+                    <h3>Conservation Location</h3>
                     <div class="inputbox">
                         <ion-icon name="lock-closed-outline"></ion-icon>
                         <input type="text" name="cloclatitude" value="{{ species_cloclatitude }}">

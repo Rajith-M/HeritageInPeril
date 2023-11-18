@@ -241,7 +241,7 @@ def search_for_update():
     
     
 @app.route('/update_species_details', methods=['GET', 'POST'])
-def search_for_update():
+def update_species_details():
     if "user" not in session or session["user"] != "Collaborator":
         abort(403)  # Return a forbidden response if the user is not a collaborator
     
@@ -249,21 +249,40 @@ def search_for_update():
         # Assuming form data is being submitted, process it here
         species_details = request.form
 
-        scientific_name = scientificNameOfTheSpeciesToUpdate
-        common_name = commonNameOfTheSpeciesToUpdate
+        # scientific_name = scientificNameOfTheSpeciesToUpdate
+        # common_name = commonNameOfTheSpeciesToUpdate
+
+        scientific_name = "Cacatua"
+        common_name = "Cockatoo"
     
         cur = mysql.connection.cursor()
 
         cur.execute(
-            """ """
+            """
+            SELECT s.CommonName, s.ScientificName, s.PopulationSize, s.Description, s.EstimatedDateOfExtinction,
+            nh.Country, nh.Region, nh.Latitude AS nh_latitude, nh.Longitude AS nh_longitude,
+            t.ThreatName, t.Description AS threat_description, t.Severity,
+            ce.OrganizationName, ce.ProjectDescription, ce.StartDate, ce.EndDate,
+            cl.Latitude AS cl_latitude, cl.Longitude AS cl_longitude, cl.ConservationPark
+            FROM species s
+            LEFT JOIN FoundAt fa ON s.ScientificName = fa.SpeciesScientificName
+            LEFT JOIN NaturalHabitat nh ON fa.NaturalHabitatCountry = nh.Country AND fa.NaturalHabitatRegion = nh.Region
+            LEFT JOIN ThreatenedBy tb ON s.ScientificName = tb.SpeciesScientificName
+            LEFT JOIN Threats t ON tb.ThreatName = t.ThreatName
+            LEFT JOIN ConservedBy cb ON s.ScientificName = cb.SpeciesScientificName
+            LEFT JOIN ConservationEfforts ce ON cb.OrganizationName = ce.OrganizationName
+            LEFT JOIN ConservedAt ca ON ce.OrganizationName = ca.OrganizationName
+            LEFT JOIN ConservationLocation cl ON ca.ConservationLocationCountry = cl.Country AND ca.ConservationLocationRegion = cl.Region
+            WHERE s.ScientificName = %s AND s.CommonName = %s
+            """, (scientific_name, common_name)
         )
         
+        species_data = cur.fetchone()
+        print(species_data)
         return 'cheCkEd!'  # Return a response after processing
         
     if "user" in session:
-        return render_template('search_for_update.html')
-
-
+        return render_template('update_species_details.html', )
 
 
 @app.route('/map_page', methods=['GET', 'POST'])
