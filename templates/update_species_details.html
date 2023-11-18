@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="{{url_for('static', filename='styles/enter_species_details.css')}}">
+  <title>Update Species Details</title>
+</head>
+<body>
+    <section>
+        <div class="form-box">
+            <div class="form-value">
+                <form action="" method="POST">
+                    <h2>Update Species Details</h2>
+                    <h3>Species Information</h3>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="text" name="commonName" value="{{ species_common_name }}" readonly>
+                        <label for="commonName">Common Name</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="text" name="scientificName" value="{{ species_scientific_name }}" readonly>
+                        <label for="scientificName">Scientific Name</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="text" name="populationSize" value="{{ species_population_size }}">
+                        <label for="populationSize">Population Size</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input name="description" type="text" value="{{ species_description }}">
+                        <label for="description">Description</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="text" name="estimatedExtinctionDate" value="{{ species_estimated_extinction_date }}">
+                        <label for="estimatedExtinctionDate">Estimated Date of Extinction</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="text" name="country" value="{{ species_country }}">
+                        <label for="country">Country</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="text" name="region" value="{{ species_region }}">
+                        <label for="region">Region</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="text" name="latitude" value="{{ species_latitude }}">
+                        <label for="latitude">Latitude</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="text" name="longitude" value="{{ species_longitude }}">
+                        <label for="longitude">Longitude</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="text" name="threatName" value="{{ species_threat_name }}">
+                        <label for="threatName">Threat Name</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input name="threatDescription" value="{{ species_threat_description }}">
+                        <label for="threatDescription">Threat Description</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="text" name="severity" value="{{ species_severity }}">
+                        <label for="severity">Severity (1-5)</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="text" name="organizationName" value="{{ species_organization_name }}">
+                        <label for="organizationName">Organization Name</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input name="projectDescription" rows="4" value="{{ species_project_description }}"></input>
+                        <label for="projectDescription">Project Description</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="text" name="startDate" value="{{ species_start_date }}">
+                        <label for="startDate">Start Date</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="text" name="endDate" value="{{ species_end_date }}">
+                        <label for="endDate">End Date</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="text" name="cloclatitude" value="{{ species_cloclatitude }}">
+                        <label for="cloclatitude">Latitude</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="text" name="cloclongitude" value="{{ species_cloclongitude }}">
+                        <label for="cloclongitude">Longitude</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="text" name="cloccountry" value="{{ species_cloccountry }}">
+                        <label for="cloccountry">Country</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="text" name="clocregion" value="{{ species_clocregion }}">
+                        <label for="clocregion">Region</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="text" name="conservationPark" value="{{ species_conservation_park }}">
+                        <label for="conservationPark">Conservation Park</label>
+                    </div>
+                    <button type="submit">Update</button>
+                </form>
+            </div>
+        </div>
+    </section>
+  
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+<script src="/scripts/index.js" defer></script>
+</html>

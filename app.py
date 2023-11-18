@@ -7,6 +7,9 @@ from dummy_data import get_random_dummy_data  # Importing the get_random_dummy_d
 app = Flask(__name__)
 app.secret_key = 'lalala'
 
+commonNameOfTheSpeciesToUpdate = "abc"
+scientificNameOfTheSpeciesToUpdate = "abc"
+
 # configure the db
 with open('db.yaml', 'r') as yamlfile:
     db = yaml.load(yamlfile, Loader=yaml.FullLoader)
@@ -202,6 +205,64 @@ def enter_species_details():
     if "user" in session:
         dummy_data = get_random_dummy_data()
         return render_template('enter_species_details.html', dummy_data = dummy_data)
+
+
+@app.route('/search_for_update', methods=['GET', 'POST'])
+def search_for_update():
+    if "user" not in session or session["user"] != "Collaborator":
+        abort(403)  # Return a forbidden response if the user is not a collaborator
+    
+    if request.method == 'POST':
+        # Assuming form data is being submitted, process it here
+        species_details = request.form
+        commonName = species_details['commonName']
+        scientificName = species_details['scientificName']
+
+        print(commonName, scientificName)
+
+        cur = mysql.connection.cursor()
+
+        # Check if the species already exists in the 'species' table
+        cur.execute("SELECT ScientificName, CommonName FROM species WHERE ScientificName = %s AND CommonName = %s", (scientificName, commonName))
+        existing_species = cur.fetchone()
+
+        if existing_species:
+            scientificNameOfTheSpeciesToUpdate = scientificName
+            commonNameOfTheSpeciesToUpdate = commonName
+            # print(scientificNameOfTheSpeciesToUpdate, commonNameOfTheSpeciesToUpdate)
+            return "Editable!"
+        else:
+            return "Not editable! Species does not exist in the database"        
+        
+        return 'cheCkEd!'  # Return a response after processing
+        
+    if "user" in session:
+        return render_template('search_for_update.html')
+    
+    
+@app.route('/update_species_details', methods=['GET', 'POST'])
+def search_for_update():
+    if "user" not in session or session["user"] != "Collaborator":
+        abort(403)  # Return a forbidden response if the user is not a collaborator
+    
+    if request.method == 'POST':
+        # Assuming form data is being submitted, process it here
+        species_details = request.form
+
+        scientific_name = scientificNameOfTheSpeciesToUpdate
+        common_name = commonNameOfTheSpeciesToUpdate
+    
+        cur = mysql.connection.cursor()
+
+        cur.execute(
+            """ """
+        )
+        
+        return 'cheCkEd!'  # Return a response after processing
+        
+    if "user" in session:
+        return render_template('search_for_update.html')
+
 
 
 

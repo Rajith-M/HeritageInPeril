@@ -1,4 +1,4 @@
 mysql_host: 'localhost'
 mysql_user: 'root'
-mysql_password: 'ic0nsqlserver'
-mysql_db: 'heritage_in_peril_s'
+mysql_password: 'MySQLPass123$'
+mysql_db: 'heritage_in_peril'
