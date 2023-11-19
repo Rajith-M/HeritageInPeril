@@ -102,3 +102,8 @@ CREATE TABLE extinctSpecies (
     ScientificName VARCHAR(255) PRIMARY KEY,
     CommonName VARCHAR(255) NOT NULL
 );
+
+CREATE TABLE deletedSpecies (
+    ScientificName VARCHAR(255) PRIMARY KEY,
+    CommonName VARCHAR(255) NOT NULL
+);

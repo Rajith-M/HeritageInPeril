@@ -552,6 +552,126 @@ dummy_data_list = [
         'cloccountry': 'Australia',
         'clocregion': 'NorthernTerritory',
         'conservationPark': 'Central Ranges Taipan Sanctuary'
+    },
+    {
+        'commonName': 'Eastern Curlew',
+        'scientificName': 'Numenius madagascariensis',
+        'populationSize': 20000,
+        'description': 'A large migratory shorebird facing threats from habitat loss and degradation due to coastal development and disturbances in its feeding and breeding grounds.',
+        'estimatedExtinctionDate': '2045-01-01',
+        'closestNeighbourCommonName': 'Humphead Wrasse',
+        'closestNeighbourScientificName': 'Cheilinus undulatus',
+        'region': 'Coastal Areas',
+        'latitude': '-33.8600',  # Approximate latitude for coastal areas in Australia
+        'longitude': '151.2094',  # Approximate longitude for coastal areas in Australia
+        'threatName': 'Habitat Loss and Coastal Development',
+        'threatDescription': 'Coastal development and disturbances impacting the Eastern Curlew habitats.',
+        'severity': 4,
+        'organizationName': 'Shorebird Conservation Society',
+        'projectDescription': 'Conservation project aimed at protecting shorebirds and their habitats.',
+        'startDate': '2023-01-01',
+        'endDate': '2026-01-01',
+        'cloclatitude': '-33.8600',  # Approximate latitude for coastal areas in Australia
+        'cloclongitude': '151.2094',  # Approximate longitude for coastal areas in Australia
+        'cloccountry': 'Australia',
+        'clocregion': 'CoastalAreas',
+        'conservationPark': 'Shorebird Haven Conservation Park'
+    },
+    {
+        'commonName': 'Hawksbill Turtle',
+        'scientificName': 'Eretmochelys imbricata',
+        'populationSize': 15000,
+        'description': 'Found in the Great Barrier Reef and coastal areas, this sea turtle species is endangered due to habitat loss, hunting for their shells, and accidental capture in fishing gear.',
+        'estimatedExtinctionDate': '2040-01-01',
+        'closestNeighbourCommonName': 'Dugong',
+        'closestNeighbourScientificName': 'Dugong dugon',
+        'region': 'Great Barrier Reef',
+        'latitude': '-16.9211',  # Approximate latitude for the Great Barrier Reef in Australia
+        'longitude': '145.7800',  # Approximate longitude for the Great Barrier Reef in Australia
+        'threatName': 'Habitat Loss and Hunting',
+        'threatDescription': 'Habitat loss and hunting posing significant threats to Hawksbill Turtle populations.',
+        'severity': 5,
+        'organizationName': 'Great Barrier Reef Conservation Society',
+        'projectDescription': 'Conservation efforts to protect sea turtles and their habitats.',
+        'startDate': '2022-01-01',
+        'endDate': '2025-01-01',
+        'cloclatitude': '-16.9211',  # Approximate latitude for the Great Barrier Reef in Australia
+        'cloclongitude': '145.7800',  # Approximate longitude for the Great Barrier Reef in Australia
+        'cloccountry': 'Australia',
+        'clocregion': 'GreatBarrierReef',
+        'conservationPark': 'Turtle Reef Conservation Park'
+    },
+    {
+        'commonName': 'Swift Parrot',
+        'scientificName': 'Lathamus discolor',
+        'populationSize': 8000,
+        'description': 'Colorful migratory parrots threatened by habitat loss caused by deforestation, land clearing, and competition for nesting sites with introduced species.',
+        'estimatedExtinctionDate': '2038-01-01',
+        'closestNeighbourCommonName': 'Rainbow Lorikeet',
+        'closestNeighbourScientificName': 'Trichoglossus moluccanus',
+        'region': 'Tasmania',
+        'latitude': '-41.4545',  # Approximate latitude for Tasmania in Australia
+        'longitude': '145.9707',  # Approximate longitude for Tasmania in Australia
+        'threatName': 'Deforestation and Nesting Site Competition',
+        'threatDescription': 'Deforestation and competition for nesting sites posing threats to Swift Parrot populations.',
+        'severity': 4,
+        'organizationName': 'Tasmanian Bird Conservancy',
+        'projectDescription': 'Conservation project focusing on protecting Swift Parrots and their habitats.',
+        'startDate': '2023-01-01',
+        'endDate': '2027-01-01',
+        'cloclatitude': '-41.4545',  # Approximate latitude for Tasmania in Australia
+        'cloclongitude': '145.9707',  # Approximate longitude for Tasmania in Australia
+        'cloccountry': 'Australia',
+        'clocregion': 'Tasmania',
+        'conservationPark': 'Parrot Paradise Conservation Park'
+    },
+    {
+        'commonName': 'Gilbert\'s Potoroo',
+        'scientificName': 'Potorous gilbertii',
+        'populationSize': 500,
+        'description': 'One of Australia\'s most endangered marsupials facing threats from habitat destruction and predation by introduced predators.',
+        'estimatedExtinctionDate': '2037-01-01',
+        'closestNeighbourCommonName': 'Quokka',
+        'closestNeighbourScientificName': 'Setonix brachyurus',
+        'region': 'Western Australia',
+        'latitude': '-25.2744',  # Approximate latitude for Western Australia in Australia
+        'longitude': '133.7751',  # Approximate longitude for Western Australia in Australia
+        'threatName': 'Habitat Destruction and Predation',
+        'threatDescription': 'Habitat destruction and predation by introduced species impacting Gilbert\'s Potoroo populations.',
+        'severity': 5,
+        'organizationName': 'Western Australia Wildlife Protection',
+        'projectDescription': 'Conservation efforts focused on saving Gilbert\'s Potoroo and restoring their habitats.',
+        'startDate': '2022-01-01',
+        'endDate': '2026-01-01',
+        'cloclatitude': '-25.2744',  # Approximate latitude for Western Australia in Australia
+        'cloclongitude': '133.7751',  # Approximate longitude for Western Australia in Australia
+        'cloccountry': 'Australia',
+        'clocregion': 'WesternAustralia',
+        'conservationPark': 'Potoroo Preserve Conservation Park'
+    },
+    {
+        'commonName': 'Mahogany Glider',
+        'scientificName': 'Petaurus gracilis',
+        'populationSize': 3000,
+        'description': 'Endemic to Queensland\'s coastal forests, this gliding possum is threatened by habitat fragmentation and loss due to land clearing for agriculture and urban development.',
+        'estimatedExtinctionDate': '2042-01-01',
+        'closestNeighbourCommonName': 'Northern Bettong',
+        'closestNeighbourScientificName': 'Bettongia tropica',
+        'region': 'Queensland',
+        'latitude': '-20.9176',  # Approximate latitude for Queensland in Australia
+        'longitude': '142.7028',  # Approximate longitude for Queensland in Australia
+        'threatName': 'Habitat Fragmentation and Urban Development',
+        'threatDescription': 'Habitat fragmentation and urban development causing a decline in Mahogany Glider populations.',
+        'severity': 4,
+        'organizationName': 'Queensland Wildlife Conservation Alliance',
+        'projectDescription': 'Conservation initiatives aimed at protecting Mahogany Gliders and preserving their habitats.',
+        'startDate': '2022-01-01',
+        'endDate': '2025-01-01',
+        'cloclatitude': '-20.9176',  # Approximate latitude for Queensland in Australia
+        'cloclongitude': '142.7028',  # Approximate longitude for Queensland in Australia
+        'cloccountry': 'Australia',
+        'clocregion': 'Queensland',
+        'conservationPark': 'Gliding Possum Grove Conservation Park'
     }
 ]
 

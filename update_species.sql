@@ -65,6 +65,12 @@ BEGIN
         Latitude = VALUES(Latitude),
         Longitude = VALUES(Longitude),
         ConservationPark = VALUES(ConservationPark);
+
+    -- Check if the updated population size is zero and call DeleteSpeciesEntries if true
+    IF p_PopulationSize = 0 THEN
+        CALL ExtinctSpecies(p_CommonName, p_ScientificName);
+    END IF;
+
 END //
 
 DELIMITER ;
