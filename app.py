@@ -251,7 +251,9 @@ def update_species_details():
 
         # scientific_name = scientificNameOfTheSpeciesToUpdate
         # common_name = commonNameOfTheSpeciesToUpdate
-
+        return 'cheCkEd!'  # Return a response after processing
+        
+    if "user" in session:
         scientific_name = "Cacatua"
         common_name = "Cockatoo"
     
@@ -263,7 +265,8 @@ def update_species_details():
             nh.Country, nh.Region, nh.Latitude AS nh_latitude, nh.Longitude AS nh_longitude,
             t.ThreatName, t.Description AS threat_description, t.Severity,
             ce.OrganizationName, ce.ProjectDescription, ce.StartDate, ce.EndDate,
-            cl.Latitude AS cl_latitude, cl.Longitude AS cl_longitude, cl.ConservationPark
+            cl.Latitude AS cl_latitude, cl.Longitude AS cl_longitude, cl.Country AS cloccountry, cl.Region AS clocregion,
+            cl.ConservationPark
             FROM species s
             LEFT JOIN FoundAt fa ON s.ScientificName = fa.SpeciesScientificName
             LEFT JOIN NaturalHabitat nh ON fa.NaturalHabitatCountry = nh.Country AND fa.NaturalHabitatRegion = nh.Region
@@ -276,13 +279,37 @@ def update_species_details():
             WHERE s.ScientificName = %s AND s.CommonName = %s
             """, (scientific_name, common_name)
         )
-        
+
         species_data = cur.fetchone()
+
         print(species_data)
-        return 'cheCkEd!'  # Return a response after processing
-        
-    if "user" in session:
-        return render_template('update_species_details.html', )
+
+        output_dict = {
+            'commonName': species_data[0],
+            'scientificName': species_data[1],
+            'populationSize': species_data[2],
+            'description': species_data[3],
+            'estimatedExtinctionDate': species_data[4],
+            'country': species_data[5],
+            'region': species_data[6],
+            'latitude': species_data[7],
+            'longitude': species_data[8],
+            'threatName': species_data[9],
+            'threatDescription': species_data[10],
+            'severity': species_data[11],
+            'organizationName': species_data[12],
+            'projectDescription': species_data[13],
+            'startDate': species_data[14],
+            'endDate': species_data[15],
+            'cloclatitude': species_data[16],
+            'cloclongitude': species_data[17],
+            'cloccountry': species_data[18],
+            'clocregion': species_data[19],
+            'conservationPark': species_data[20]
+        }
+
+        print(output_dict)
+        return render_template('update_species_details.html', species_data = output_dict)
 
 
 @app.route('/map_page', methods=['GET', 'POST'])
