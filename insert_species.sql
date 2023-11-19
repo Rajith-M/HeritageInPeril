@@ -1,3 +1,4 @@
+
 DELIMITER //
 
 CREATE PROCEDURE UpdateRelationTables (

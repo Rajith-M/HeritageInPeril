@@ -227,14 +227,12 @@ def search_for_update():
         existing_species = cur.fetchone()
 
         if existing_species:
+            global scientificNameOfTheSpeciesToUpdate, commonNameOfTheSpeciesToUpdate
             scientificNameOfTheSpeciesToUpdate = scientificName
             commonNameOfTheSpeciesToUpdate = commonName
-            # print(scientificNameOfTheSpeciesToUpdate, commonNameOfTheSpeciesToUpdate)
-            return "Editable!"
+            return redirect(url_for('update_species_details'))
         else:
             return "Not editable! Species does not exist in the database"        
-        
-        return 'cheCkEd!'  # Return a response after processing
         
     if "user" in session:
         return render_template('search_for_update.html')
@@ -249,13 +247,66 @@ def update_species_details():
         # Assuming form data is being submitted, process it here
         species_details = request.form
 
-        # scientific_name = scientificNameOfTheSpeciesToUpdate
-        # common_name = commonNameOfTheSpeciesToUpdate
-        return 'cheCkEd!'  # Return a response after processing
+        print('------species_details: ------- \n', species_details)
+
+        # Extracting form data
+        scientific_name = species_details['scientificName']
+        common_name = species_details['commonName']
+        population_size = species_details['populationSize']
+        description = species_details['description']
+        estimated_extinction_date = species_details['estimatedExtinctionDate']
+        country = species_details['country']
+        region = species_details['region']
+        latitude = species_details['latitude']
+        longitude = species_details['longitude']
+        threat_name = species_details['threatName']
+        threat_description = species_details['threatDescription']
+        severity = species_details['severity']
+        organization_name = species_details['organizationName']
+        project_description = species_details['projectDescription']
+        start_date = species_details['startDate']
+        end_date = species_details['endDate']
+        cloclatitude = species_details['cloclatitude']
+        cloclongitude = species_details['cloclongitude']
+        cloccountry = species_details['cloccountry']
+        clocregion = species_details['clocregion']
+        conservation_park = species_details['conservationPark']
+
+        # Prepare the parameters for the stored procedure
+        params = (
+            common_name,
+            scientific_name,
+            int(population_size),
+            description,
+            estimated_extinction_date,
+            country,
+            region,
+            float(latitude),
+            float(longitude),
+            threat_name,
+            threat_description,
+            int(severity),
+            organization_name,
+            project_description,
+            start_date,
+            end_date,
+            float(cloclatitude),
+            float(cloclongitude),
+            cloccountry,
+            clocregion,
+            conservation_park
+        )
+
+        # Execute the stored procedure
+        cur = mysql.connection.cursor()
+        cur.callproc('UpdateSpeciesDetails', params)
+        mysql.connection.commit()
+        cur.close()
+        return 'update successful!'  # Return a response after processing
         
     if "user" in session:
-        scientific_name = "Cacatua"
-        common_name = "Cockatoo"
+        scientific_name = scientificNameOfTheSpeciesToUpdate
+        common_name = commonNameOfTheSpeciesToUpdate
     
         cur = mysql.connection.cursor()
 

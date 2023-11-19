@@ -1,7 +1,6 @@
 -- Species Table:
-
-create database heritage_in_peril;
-use heritage_in_peril;
+CREATE DATABASE heritage_in_peril;
+USE heritage_in_peril;
 
 CREATE TABLE species (
     ScientificName VARCHAR(255) PRIMARY KEY,
@@ -16,7 +15,7 @@ CREATE TABLE ClosestNeighbour (
     CommonName VARCHAR(255) NOT NULL,
     ScientificName VARCHAR(255) NOT NULL,
     PRIMARY KEY (CommonName, ScientificName),
-    FOREIGN KEY (ScientificName) REFERENCES species(ScientificName)
+    FOREIGN KEY (ScientificName) REFERENCES species(ScientificName) ON UPDATE CASCADE
 );
 
 -- NaturalHabitat Table:
@@ -34,8 +33,8 @@ CREATE TABLE FoundAt (
     NaturalHabitatRegion VARCHAR(255),
     SpeciesScientificName VARCHAR(255),
     PRIMARY KEY (NaturalHabitatCountry, NaturalHabitatRegion, SpeciesScientificName),
-    FOREIGN KEY (NaturalHabitatCountry, NaturalHabitatRegion) REFERENCES NaturalHabitat(Country, Region),
-    FOREIGN KEY (SpeciesScientificName) REFERENCES species(ScientificName)
+    FOREIGN KEY (NaturalHabitatCountry, NaturalHabitatRegion) REFERENCES NaturalHabitat(Country, Region) ON UPDATE CASCADE,
+    FOREIGN KEY (SpeciesScientificName) REFERENCES species(ScientificName) ON UPDATE CASCADE
 );
 
 -- Threats Table:
@@ -50,8 +49,8 @@ CREATE TABLE ThreatenedBy (
     SpeciesScientificName VARCHAR(255),
     ThreatName VARCHAR(255),
     PRIMARY KEY (SpeciesScientificName, ThreatName),
-    FOREIGN KEY (SpeciesScientificName) REFERENCES species(ScientificName),
-    FOREIGN KEY (ThreatName) REFERENCES Threats(ThreatName)
+    FOREIGN KEY (SpeciesScientificName) REFERENCES species(ScientificName) ON UPDATE CASCADE,
+    FOREIGN KEY (ThreatName) REFERENCES Threats(ThreatName) ON UPDATE CASCADE
 );
 
 -- ConservationEfforts Table:
@@ -77,8 +76,8 @@ CREATE TABLE ConservedBy (
     OrganizationName VARCHAR(255),
     SpeciesScientificName VARCHAR(255),
     PRIMARY KEY (OrganizationName, SpeciesScientificName),
-    FOREIGN KEY (OrganizationName) REFERENCES ConservationEfforts(OrganizationName),
-    FOREIGN KEY (SpeciesScientificName) REFERENCES species(ScientificName)
+    FOREIGN KEY (OrganizationName) REFERENCES ConservationEfforts(OrganizationName) ON UPDATE CASCADE,
+    FOREIGN KEY (SpeciesScientificName) REFERENCES species(ScientificName) ON UPDATE CASCADE
 );
 
 -- ConservedAt Table:
@@ -87,8 +86,8 @@ CREATE TABLE ConservedAt (
     ConservationLocationCountry VARCHAR(255),
     ConservationLocationRegion VARCHAR(255),
     PRIMARY KEY (OrganizationName, ConservationLocationCountry, ConservationLocationRegion),
-    FOREIGN KEY (OrganizationName) REFERENCES ConservationEfforts(OrganizationName),
-    FOREIGN KEY (ConservationLocationCountry, ConservationLocationRegion) REFERENCES ConservationLocation(Country, Region)
+    FOREIGN KEY (OrganizationName) REFERENCES ConservationEfforts(OrganizationName) ON UPDATE CASCADE,
+    FOREIGN KEY (ConservationLocationCountry, ConservationLocationRegion) REFERENCES ConservationLocation(Country, Region) ON UPDATE CASCADE
 );
 
 -- User table (for people who subscribe to the page and for monthly newsletters, etc.)
@@ -97,4 +96,9 @@ CREATE TABLE User (
     User_Password VARCHAR(50),
     User_Type VARCHAR(50),
     PRIMARY KEY (User_Email)
+);
+
+CREATE TABLE extinctSpecies (
+    ScientificName VARCHAR(255) PRIMARY KEY,
+    CommonName VARCHAR(255) NOT NULL
 );
