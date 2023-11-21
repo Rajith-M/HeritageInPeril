@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="{{ css_url }}" media="screen" />
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles.css')}}" media="screen" />
+    <title>Document</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+    <header class="header">
+        <a href="/"><h1 class="header__logo">Heritage In Peril - Australia</h1></a>
+        <span class="material-symbols-outlined">
+            pets
+        </span>
+    </header>
+    <div>
+    <div class="MapWrapper">
+        <div id="map-australia">
+            <ul class="australia">
+                <li class="au1"><a href="#Canberra">Canberra</a></li>
+                <li class="au2"><a href="#NewSouthWales">New South Wales</a></li>
+                <li class="au3"><a href="#NorthernTerritory">Northern Territory</a></li>
+                <li class="au4"><a href="#Queensland">Queensland</a></li>
+                <li class="au5"><a href="#SouthAustralia">South Australia</a></li>
+                <li class="au6"><a href="#Tasmania">Tasmania</a></li>
+                <li class="au7"><a href="#Victoria">Victoria</a></li>
+                <li class="au8"><a href="#WesternAustralia">Western Australia</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class = "OverArchingElement2">
+        <section class="content">
+            <div>
+                <h2 class="ContentTwo__title reveal">Apply Filters To Search Through Our Database:</h2>
+                <form id="filter-form" method="POST" action="" class="filter reveal">
+                    <div class="InformativeText">
+                        <label for="country-dropdown">Select Region:<br></label>
+                        <select id="country-dropdown" name="region" class="">
+                        </select>
+                        <br>
+                        <br>  
+                        <label for="conservation-status">Conservation Status:<br></label>
+                        <select id="conservation-status" name="conservation-status" class="">
+                            <option value="5">Critically Endangered</option>
+                            <option value="4">Endangered</option>
+                            <option value="3">Vulnerable</option>
+                            <option value="2">Near Threatened</option>
+                            <option value="1">Not In Danger</option>
+                        </select>
+                        <br>
+                        <br>
+                        <label for="limit">Enter a date:<br></label>
+                        <select id="limit" name="date" class="">
+                            <option value="2050-01-01">2050</option>
+                            <option value="2060-01-01">2060</option>
+                            <option value="2070-01-01">2070</option>
+                            <option value="2080-01-01">2080</option>
+                            <option value="2090-01-01">2090</option>
+                        </select>   
+                        <button type="submit" class="">Submit</button>
+                </form>
+            </div>
+            <div>
+                <h2 class="ContentTwo__title reveal">Organizations And their counts</h2>
+                <table class="table">
+                    <tr>
+                      <th>Organization Name</th>
+                      <th>Managed Species Count</th>
+                      <th>Total Population Size</th>
+                    </tr>
+                    <tbody>
+                      {% for row in conservation_stats %}
+                        <tr>
+                          <td>{{ row[0] }}</td>
+                          <td>{{ row[1] }}</td>
+                          <td>{{ row[2] }}</td>
+                        </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                  <br>
+                  <h2 class="ContentTwo__title reveal">Species Having Higher Than Average Population</h2>
+                  <table>
+                    <thead>
+                        <tr>
+                            <th>Scientific Name</th>
+                            <th>Population Size</th>
+                            <th>Region</th>
+                            <th>Average Population in Region</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for species in species_info %}
+                            <tr>
+                                <td>{{ species[0] }}</td>
+                                <td>{{ species[1] }}</td>
+                                <td>{{ species[2] }}</td>
+                                <td>{{ species[3] }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <br>
+                <h2 class="ContentTwo__title reveal">Testing a nested query</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Scientific Name</th>
+                            <th>Common Name</th>
+                            <th>Population Size</th>
+                            <th>Description</th>
+                            <th>Estimated Date Of Extinction</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for nest in nested %}
+                            <tr>
+                                <td>{{ nest[0] }}</td>
+                                <td>{{ nest[1] }}</td>
+                                <td>{{ nest[2] }}</td>
+                                <td>{{ nest[3] }}</td>
+                                <td>{{ nest[4] }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    <div>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script type="text/javascript" src="https://cssmapsplugin.com/5/jquery.cssmap.min.js"></script>
+</body>
+    <script type="text/javascript">
+    $(document).ready(function(){
+        // CSSMap;
+        $("#map-australia").CSSMap({
+            "size": 750,
+            "onClick": function(listItem) {
+            }
+        });
+    });
+    </script>
+
+    <script type="text/javascript">
+
+        function handleHashChange() {
+
+            var country = window.location.hash.substring(1);
+
+
+            addCountryToDropdown(country);
+        }
+
+
+        window.addEventListener('hashchange', handleHashChange);
+
+
+        handleHashChange();
+
+        function addCountryToDropdown(country) {
+
+            var dropdown = document.getElementById('country-dropdown');
+
+
+            var option = document.createElement('option');
+
+
+            option.value = country;
+            option.text = country;
+
+
+            dropdown.add(option);
+            option.selected=true;
+        }
+    </script>
+ 
+
+    <script type="text/javascript">
+        window.addEventListener('scroll', reveal);
+
+        function reveal() {
+        const revealer = document.querySelectorAll('.reveal');
+
+        for (let i of revealer) {
+        let windowheight = window.innerHeight;
+        let revealTop = i.getBoundingClientRect().top;
+
+        let revealPoint = 75;
+        if (revealTop < windowheight - revealPoint) {
+        i.classList.add('active');
+        } else {
+        i.classList.remove('active');  
+        }
+        }
+        }
+    </script>
+
+</html>

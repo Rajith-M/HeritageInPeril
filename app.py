@@ -469,6 +469,111 @@ def map_page():
     # If not a POST request, render the initial map.html
     return render_template('map.html', css_url=url_for('static', filename='cssmap-australia/cssmap-australia.css'), get_unsplash_image_url=get_unsplash_image_url)
 
+@app.route('/analytics', methods=['GET', 'POST'])
+def analytics():
+    if request.method == 'POST':
+        new_species_details = request.form
+
+        # Extract filter values from the form
+        region_filter = new_species_details.get('region')
+        severity_filter = int(new_species_details.get('conservation-status'))
+        date_filter = str(new_species_details.get('date'))
+
+        query = """
+        SELECT
+            c.OrganizationName,
+            COUNT(DISTINCT c.SpeciesScientificName) AS ManagedSpeciesCount,
+            SUM(s.PopulationSize) AS TotalPopulationSize
+        FROM
+            ConservedBy c
+        JOIN
+            species s ON c.SpeciesScientificName = s.ScientificName
+        GROUP BY
+            c.OrganizationName;
+         """
+        
+        cur = mysql.connection.cursor()
+        cur.execute(query)
+        conservation_stats = cur.fetchall()
+        cur.close()
+
+        query = f"""
+        SELECT
+            s.ScientificName,
+            s.PopulationSize,
+            nh.Region,
+            (
+                SELECT AVG(s2.PopulationSize)
+                FROM species s2
+                JOIN FoundAt f2 ON s2.ScientificName = f2.SpeciesScientificName
+                JOIN NaturalHabitat nh2 ON f2.NaturalHabitatCountry = nh2.Country AND f2.NaturalHabitatRegion = nh2.Region
+                WHERE nh2.Region = nh.Region
+            ) AS AvgPopulationInRegion
+        FROM
+            species s
+        JOIN
+            FoundAt f ON s.ScientificName = f.SpeciesScientificName
+        JOIN
+            NaturalHabitat nh ON f.NaturalHabitatCountry = nh.Country AND f.NaturalHabitatRegion = nh.Region
+        WHERE
+            s.PopulationSize > (
+                SELECT AVG(s2.PopulationSize)
+                FROM species s2
+                JOIN FoundAt f2 ON s2.ScientificName = f2.SpeciesScientificName
+                JOIN NaturalHabitat nh2 ON f2.NaturalHabitatCountry = nh2.Country AND f2.NaturalHabitatRegion = nh2.Region
+                WHERE nh2.Region = nh.Region
+            );
+        """
+
+        cur = mysql.connection.cursor()
+        cur.execute(query)
+        species_info = cur.fetchall()
+        cur.close()
+
+        query = f"""
+            SELECT
+                s.ScientificName,
+                s.CommonName,
+                s.PopulationSize,
+                s.Description,
+                s.EstimatedDateOfExtinction
+            FROM
+                species s
+            WHERE
+                NOT EXISTS (
+                    SELECT 1
+                    FROM ConservedBy c
+                    JOIN ConservationLocation cl ON c.OrganizationName = cl.ConservationPark
+                    WHERE
+                        c.SpeciesScientificName = s.ScientificName
+                        AND cl.Region = \"{region_filter}\"
+                )
+                AND s.PopulationSize > 0 -- Adjust as needed
+                AND s.EstimatedDateOfExtinction BETWEEN CURDATE() AND '{date_filter}'
+                AND s.ScientificName IN (
+                    SELECT tb.SpeciesScientificName
+                    FROM ThreatenedBy tb
+                    JOIN Threats th ON tb.ThreatName = th.ThreatName
+                    WHERE
+                        th.Severity = {severity_filter}
+                );
+        """
+        print(query)
+        cur = mysql.connection.cursor()
+        cur.execute(query)
+        nested = cur.fetchall()
+        cur.close()
+        for nest in nested:
+            print(nest[0])
+        
+
+        # Render the template with the filtered species data
+        return render_template('Analytics.html', conservation_stats = conservation_stats, species_info = species_info, css_url=url_for('static', filename='cssmap-australia/cssmap-australia.css'),nested = nested)
+
+    # If not a POST request, render the initial map.html
+    return render_template('Analytics.html', css_url=url_for('static', filename='cssmap-australia/cssmap-australia.css'))
+
+
 if __name__ == '__main__':
     app.run(debug=True)
 
