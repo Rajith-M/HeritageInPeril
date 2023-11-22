@@ -107,3 +107,11 @@ CREATE TABLE deletedSpecies (
     ScientificName VARCHAR(255) PRIMARY KEY,
     CommonName VARCHAR(255) NOT NULL
 );
+
+CREATE TABLE SpeciesChangeLog (
+    LogID INT AUTO_INCREMENT PRIMARY KEY,
+    ScientificName VARCHAR(255) NOT NULL,
+    CommonName VARCHAR(255) NOT NULL,
+    ChangeInfo TEXT NOT NULL,
+    ChangeDateTime TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
