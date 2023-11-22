@@ -568,10 +568,10 @@ def analytics():
         
 
         # Render the template with the filtered species data
-        return render_template('Analytics.html', conservation_stats = conservation_stats, species_info = species_info, css_url=url_for('static', filename='cssmap-australia/cssmap-australia.css'),nested = nested)
+        return render_template('analytics.html', conservation_stats = conservation_stats, species_info = species_info, css_url=url_for('static', filename='cssmap-australia/cssmap-australia.css'),nested = nested)
 
     # If not a POST request, render the initial map.html
-    return render_template('Analytics.html', css_url=url_for('static', filename='cssmap-australia/cssmap-australia.css'))
+    return render_template('analytics.html', css_url=url_for('static', filename='cssmap-australia/cssmap-australia.css'))
 
 
 if __name__ == '__main__':
