@@ -178,5 +178,17 @@ button{
   align-items: center;
 }
 
+.table{
+  border: 1px solid;
+}
+
+table, th, td {
+  border: 5px solid #93DFD5;
+  text-align: center;
+  color: white;
+  border-collapse: collapse;
+  padding: 15px;
+}
+
   
 
