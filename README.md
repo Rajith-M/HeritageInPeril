@@ -65,7 +65,7 @@ This project is a web application built using Flask, a Python web framework. It 
 # Login Page
 ![screenshot](login.png)'
 
-#Display Species Page
+# Display Species Page
 ![screenshot](species.png)'
 ## Additional Information
 
