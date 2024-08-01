@@ -4,6 +4,7 @@ The Endangered Species Website is a comprehensive platform aimed at raising awar
 
 An Explorer logs in and navigates the map page, selecting a specific region to view endangered species within that area. A Collaborator logs in and performs various operations such as adding a newly discovered species to the database, updating the conservation status of an endangered species, etc.
 
+![screenshot](map.png)'
 ## Project Overview
 
 This project is a web application built using Flask, a Python web framework. It includes a frontend with HTML, JavaScript, and jQuery, and a backend that interacts with a MySQL database.
@@ -34,6 +35,8 @@ This project is a web application built using Flask, a Python web framework. It 
 - `static/includes/script.js`: JavaScript file for handling map interactions and other frontend logic.
 - `db.yaml`: Configuration file for database connection settings.
 
+![screenshot](login.png)'
+
 ## How to Run
 
 1. **Install Dependencies**:
@@ -61,6 +64,7 @@ This project is a web application built using Flask, a Python web framework. It 
 - `/map_page`: Page displaying the interactive map.
 - `/analytics`: Analytics page.
 
+![screenshot](species.png)'
 ## Additional Information
 
 - The project uses a secret key for session management, defined in `app.py`.
