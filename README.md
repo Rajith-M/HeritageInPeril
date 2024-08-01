@@ -35,8 +35,6 @@ This project is a web application built using Flask, a Python web framework. It 
 - `static/includes/script.js`: JavaScript file for handling map interactions and other frontend logic.
 - `db.yaml`: Configuration file for database connection settings.
 
-![screenshot](login.png)'
-
 ## How to Run
 
 1. **Install Dependencies**:
@@ -64,6 +62,10 @@ This project is a web application built using Flask, a Python web framework. It 
 - `/map_page`: Page displaying the interactive map.
 - `/analytics`: Analytics page.
 
+# Login Page
+![screenshot](login.png)'
+
+#Display Species Page
 ![screenshot](species.png)'
 ## Additional Information
 
